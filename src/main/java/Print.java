@@ -7,7 +7,10 @@ public class Print {
                 result.append("*");
             }
         } else if ("vertical".equals(type)) {
-            result.append("*\n*");
+            for (int index = 0; index < n; index++) {
+                result.append("*\n");
+            }
+            result.replace(result.length() - 1, result.length(), "");
         }
         System.out.println(result);
         return result.toString();
