@@ -5,8 +5,18 @@ public class Print {
             return print(n, "*");
         } else if ("vertical".equals(type)) {
             return print(n, "*\n");
+        } else {
+            return printRight(n);
         }
-        return null;
+    }
+
+    private String printRight(int n) {
+        StringBuilder result = new StringBuilder();
+        for (int index = 0; index < n; index++) {
+            result.append(print(index + 1, "*")).append("\n");
+        }
+        dealWithBreakLineInEnd(result);
+        return result.toString();
     }
 
     private String print(int n,  String symbol) {
@@ -14,11 +24,15 @@ public class Print {
         for (int index = 0; index < n; index++) {
             result.append(symbol);
         }
+        dealWithBreakLineInEnd(result);
+        System.out.println(result);
+        return result.toString();
+    }
+
+    private void dealWithBreakLineInEnd(StringBuilder result) {
         if (hasBreakLineInEnd(result)) {
             removeBreakLine(result);
         }
-        System.out.println(result);
-        return result.toString();
     }
 
     private StringBuilder removeBreakLine(StringBuilder result) {
