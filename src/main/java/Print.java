@@ -17,16 +17,16 @@ public class Print {
     }
 
     private String print(int n,  String symbol) {
-        StringBuilder result = buildString(n, symbol, "");
+        StringBuilder result = buildString(n, symbol);
         dealWithBreakLineInEnd(result);
         System.out.println(result);
         return result.toString();
     }
 
-    private StringBuilder buildString(int n, String symbol, String lastSymbol) {
+    private StringBuilder buildString(int n, String symbol) {
         StringBuilder result = new StringBuilder();
         for (int index = 0; index < n; index++) {
-            result.append(symbol).append(lastSymbol);
+            result.append(symbol).append("");
         }
         return result;
     }
@@ -37,8 +37,8 @@ public class Print {
         }
     }
 
-    private StringBuilder removeBreakLine(StringBuilder result) {
-        return result.replace(result.length() - 1, result.length(), "");
+    private void removeBreakLine(StringBuilder result) {
+        result.replace(result.length() - 1, result.length(), "");
     }
 
     private boolean hasBreakLineInEnd(StringBuilder result) {
