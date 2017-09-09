@@ -29,4 +29,9 @@ public class TriangleTest {
     public void output_right_trigle_when_inut_two() throws Exception {
         assertEquals("*\n**\n***", print.printAsterisk(3, "right"));
     }
+
+    @Test
+    public void final_test() throws Exception {
+        assertEquals("*\n**\n***\n****\n*****", print.printAsterisk(5, "right"));
+    }
 }
